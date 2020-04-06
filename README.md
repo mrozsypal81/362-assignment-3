@@ -1,3 +1,5 @@
+This program is a skeleton with no functionality yet available
+
 
 How to execute:
 Type in console within the directory of the files 
