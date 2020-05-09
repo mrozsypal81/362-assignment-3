@@ -1,5 +1,5 @@
-"use strict"
 
+"use strict"
 
 //Object for the main app function that runs on a webpage
 function Main(portval) {
@@ -10,6 +10,7 @@ function Main(portval) {
     // Needed to parse the request body
     const bodyParser = require("body-parser");
     const app     = express();
+    app.set('view engine','ejs'); //this is needed to use ejs
     app.listen(portval);
 
     app.use(bodyParser.urlencoded({ extended: true }));
@@ -29,6 +30,10 @@ function Main(portval) {
     // will search through users past searches and bring up most relevant or close distance matches
     app.post("/usersearch", function(req, res) {
 
+    let inputstring = req.body["search"];
+    console.log("Inside Main.js");
+    console.log(inputstring);
+    res.render("map",{inputstring});
     });
 
     //will bring up the userprofile so that the user can edit or view information about themselves
@@ -46,5 +51,5 @@ function Main(portval) {
 
 
 
-  
+    
     let appinstance = new Main(3000);
